@@ -1,0 +1,304 @@
+.elemento{display: flex;
+    background-image: linear-gradient(to right top, #f2f2f2, #e2e9f8, #c5e3fd, #9cdffa, #6cdced, #6cdced, #6cdced, #6cdced, #9cdffa, #c5e3fd, #e2e9f8, #f2f2f2);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.elemento__titulo{
+    color: rgb(49, 49, 49);
+    font-family: 'Fredoka One', cursive;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.elemento__figura{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.elemento__figura--imagen0{
+    width: 500px;
+    height: 550px;
+   margin: 50px;
+    margin-bottom: 1rem;
+    mix-blend-mode: multiply;
+
+}
+.elemento__figura--texto{
+    font-family: 'Fredoka One', cursive;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 1.8;
+    color: #fc32cd;
+}
+.elemento__boton{
+    font-family: 'Montserrat',sans-serif;
+    color:#fc32cd;
+    background-color: #ffffff54;
+    border-radius: 25px;
+    border-color: 5px solid #e60909;
+    margin: 0 auto;
+    padding: 10px;
+    justify-content: space-around;
+}
+.img_perfil{
+    width: 50px;
+    height: 50px;
+}
+
+@media (max-width: 600px) 
+{
+    .elemento{display: flex;
+        background-image: linear-gradient(to right top, #f2f2f2, #e2e9f8, #c5e3fd, #9cdffa, #6cdced, #6cdced, #6cdced, #6cdced, #9cdffa, #c5e3fd, #e2e9f8, #f2f2f2);
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .elemento__titulo{
+        color: rgb(49, 49, 49);
+        font-family: 'Fredoka One', cursive;
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .elemento__figura{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+    .elemento__figura--imagen0{
+        width: 300px;
+        height: 350px;
+       margin: 50px;
+        margin-bottom: 0.5rem;
+        mix-blend-mode: multiply;
+    
+    }
+    .elemento__figura--texto{
+        font-family: 'Fredoka One', cursive;
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #fc32cd;
+    }
+    .elemento__boton{
+        font-family: 'Montserrat',sans-serif;
+        color:#fc32cd;
+        background-color: #ffffff54;
+        border-radius: 25px;
+        border-color: 5px solid #e60909;
+        margin: 0 auto;
+        padding: 10px;
+        justify-content: space-around;
+    }
+    .img_perfil{
+        width: 50px;
+        height: 50px;
+    }
+    
+    
+    
+
+
+
+
+    .producto{
+        background-image: radial-gradient(circle, #f2f2f2, #e2e9f8, #c5e3fd, #9cdffa, #6cdced, #6cdced, #6cdced, #6cdced, #9cdffa, #c5e3fd, #e2e9f8, #f2f2f2);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'Fredoka One', cursive;
+        line-height: 1.8;
+        text-align: center;
+        height: 1000px;
+    
+    }
+    .producto__titulo{
+        font-family: 'Fredoka One', cursive;
+        font-size: 2rem;
+        padding: 30px;
+    
+    }
+    .producto__card{
+        display: flex;
+        width: 97%;
+        height: 600px;
+        background-color: rgba(28, 28, 194, 0);
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 100px;
+        flex-direction: column;
+    
+    }
+    
+    .card--prod1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 31%;
+        height: 550px;
+        background-color: rgba(162, 249, 252, 0.791);
+        border-radius: 25px;
+        color: #535353;
+    
+    }
+    .card--prod2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 31%;
+        height: 550px;
+        background-color: rgba(162, 249, 252, 0.791);
+        border-radius: 25px;
+        color: #535353;
+    }
+    .card--prod3{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 31%;
+        height: 550px;
+        background-color:  rgba(162, 249, 252, 0.791);
+        border-radius: 25px;
+        color: #535353;
+    }
+    .elemento__figura--imagen{
+        width: 300px;
+        height: 400px;
+    }
+    .elemento__figura--imagen2{
+        width: 300px;
+        height: 400px;
+    }
+    
+    .elemento__figura--imagen3{
+        width: 300px;
+        height: 350px;
+    }
+    .card__titulo{
+        color: #fc32cd;
+        font-family: 'Fredoka One', cursive;
+        font-size: 1.25rem;
+        padding: 15px;
+    }
+    .card__contenido{
+        padding: 10px;
+    }
+    .card__precio{
+        font-size: 25px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+    .card__desc{
+        font-size: 18px;
+    }
+    .card__boton{
+        background-color: rgb(93, 136, 145);
+    }
+
+
+    
+
+
+    .pagina{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: rgb(255, 255, 255);
+        
+        height: 250px;
+        background-image: url('../img/port1.jpg');
+        background-size: contain; 
+        background-repeat: no-repeat; 
+        background-position: center; 
+        
+    
+    }
+    .pagina__titulo{
+        font-family: 'Bangers', sans-serif;
+        font-size: 3rem;
+        color: #fc32cd;
+        text-shadow: 3px 3px 10px rgba(246, 235, 34, 0.853);
+        text-align: center;
+        margin: 180px;
+    }
+    .pagina__desc{
+        font-family: 'Montserrat',sans-serif;
+        font-size: 0.2rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        
+        
+    }
+    .pagina__boton{
+        font-family: 'Montserrat',sans-serif;
+        text-align: center;
+        color: black;
+        width: 30%;
+        height: 20px;
+        font-size: 15px;
+
+        background-color: rgba(240, 248, 255, 0.332);
+        padding: 0.2rem;
+        border: 2px solid #fc32cd;
+        border-radius: 25px;
+    }
+
+
+
+    .head{
+        color:#fc32cd;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        border-bottom: 1px solid #0b060600;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        background-color:#00AEEF;
+        justify-content:center;
+    
+    }
+    .head__logo{
+    height: 20px;
+    margin-bottom: 1rem;
+    margin-right:10px ;
+    
+    }
+    .head__logo2{
+        height: 20px;
+        margin-bottom: 1rem;
+        margin-left:10px ;
+       
+        }
+    
+    .head_nav{
+        background-color: rgb(147, 99, 31);
+        text-align: center;
+       
+    }
+    .head__link{
+        background-color: #8fd3eb00;
+        font-family: 'Roboto', sans-serif;
+       
+       font-size: 0.7rem;
+        text-align: center;
+       
+        
+        margin-bottom: 2px;
+        
+        font-weight: 100;
+        
+    }
+}

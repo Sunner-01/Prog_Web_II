@@ -1,0 +1,57 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    /*background-image: url('../img/foot3.png') ;*/
+    background-color: aquamarine;
+    background-color:#000000df ;
+    
+    color: rgb(255, 255, 255);
+    height: 440px;
+}
+.contacto{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 30px;
+    background-color: rgba(36, 87, 87, 0);
+}
+.contacto__titulo{
+    color: #fc32cd;
+    font-size: 20px;
+    margin: 20 0;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+.contacto__contenido{
+    display: flex;
+    align-content: center;
+    
+    background-color: rgba(184, 184, 162, 0);
+}
+.img_ico{
+    width: 40px;
+    height: 40px;
+    margin: 15px;
+}
+.nosotros__imagen{
+    width: 50px;
+    height: 40px;
+}
+.nosotros{
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    color: aliceblue;
+    margin-top: 30px;
+}
+.nosotros__titulo{
+    
+    padding: 10px;
+}
+.nosotros__texto{
+    margin: 0 30px;
+}

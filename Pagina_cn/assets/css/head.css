@@ -1,0 +1,48 @@
+.head{
+    color:#fc32cd;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    background-color:#00AEEF;
+    justify-content:center;
+
+}
+.head__logo{
+height: 75px;
+margin-bottom: 1rem;
+margin-right:100px ;
+
+}
+.head__logo2{
+    height: 75px;
+    margin-bottom: 1rem;
+    margin-left:100px ;
+   
+    }
+
+.head_nav{
+    background-color: rgb(147, 99, 31);
+    text-align: center;
+    width: 500px;
+}
+.head__link{
+    background-color: #8fd3eb00;
+    font-family: 'Roboto', sans-serif;
+   border-radius: 15px;
+   font-size: 1.3rem;
+    text-align: center;
+    padding: 15px 0;
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    padding: 7px;
+    font-weight: 500;
+    
+}

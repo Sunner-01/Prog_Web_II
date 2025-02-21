@@ -1,0 +1,42 @@
+.pagina{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(235, 40, 40);
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+    height: 460px;
+    background-image: url('../img/port1.jpg');
+    background-size: contain; 
+        background-repeat: no-repeat; 
+        background-position: center; 
+
+}
+.pagina__titulo{
+    font-family: 'Bangers', sans-serif;
+    font-size: 7rem;
+    color: #fc32cd;
+    text-shadow: 3px 3px 10px rgba(246, 235, 34, 0.853);
+    text-align: center;
+    margin: 145px;
+}
+.pagina__desc{
+    font-family: 'Montserrat',sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    margin: 0 auto 2.5rem;
+}
+.pagina__boton{
+    font-family: 'Montserrat',sans-serif;
+    text-align: center;
+    color: black;
+    width: 30%;
+    background-color: rgba(240, 248, 255, 0.332);
+    padding: 1rem;
+    border: 2px solid #fc32cd;
+    border-radius: 25px;
+}
+

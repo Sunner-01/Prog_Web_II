@@ -1,0 +1,104 @@
+.producto{
+    background-image: radial-gradient(circle, #f2f2f2, #e2e9f8, #c5e3fd, #9cdffa, #6cdced, #6cdced, #6cdced, #6cdced, #9cdffa, #c5e3fd, #e2e9f8, #f2f2f2);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Fredoka One', cursive;
+    line-height: 1.8;
+    text-align: center;
+
+}
+.producto__titulo{
+    font-family: 'Fredoka One', cursive;
+    font-size: 2rem;
+    padding: 30px;
+
+}
+.producto__card{
+    display: flex;
+    width: 97%;
+    height: 600px;
+    background-color: rgba(28, 28, 194, 0);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+
+}
+
+.card--prod1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 31%;
+    height: 550px;
+    background-color: rgba(162, 249, 252, 0.791);
+    border-radius: 25px;
+    color: #535353;
+
+}
+.card--prod2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 31%;
+    height: 550px;
+    background-color: rgba(162, 249, 252, 0.791);
+    border-radius: 25px;
+    color: #535353;
+}
+.card--prod3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 31%;
+    height: 550px;
+    background-color:  rgba(162, 249, 252, 0.791);
+    border-radius: 25px;
+    color: #535353;
+}
+.elemento__figura--imagen{
+    width: 300px;
+    height: 400px;
+}
+.elemento__figura--imagen2{
+    width: 300px;
+    height: 400px;
+}
+
+.elemento__figura--imagen3{
+    width: 300px;
+    height: 350px;
+}
+.card__titulo{
+    color: #fc32cd;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.25rem;
+    padding: 15px;
+}
+.card__contenido{
+    padding: 10px;
+}
+.card__precio{
+    font-size: 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.card__desc{
+    font-size: 18px;
+}
+.card__boton{
+    background-color: rgb(93, 136, 145);
+}
+
+
+
+@media (max-width: 600px) 
+{
+    
+    
+    
+
+
+}
+
+
+
