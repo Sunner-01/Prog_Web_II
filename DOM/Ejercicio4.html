@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 querySelectorAll</title>
+</head>
+<body>
+    <p>Parrafo 1</p>
+    <p>Parrafo 2</p>
+    <p>Parrafo 3</p>
+    <p>Parrafo 4</p>
+    <script>
+        const elementos=document.querySelectorAll('p')
+        elementos.forEach((elemento)=>{
+            elemento.style.display='none'
+        });
+    </script>
+</body>
+</html>
