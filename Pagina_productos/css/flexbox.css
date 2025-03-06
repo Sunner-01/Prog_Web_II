@@ -1,0 +1,164 @@
+/*nav*/ 
+
+.caja_nav{
+    display:flex;
+    justify-content:center;
+}
+.nav_menu{
+    width:auto;
+    margin-top:1rem;
+    margin-bottom: 1rem;
+}
+.nom_pag{
+    background-color: rgba(46, 207, 94, 0);
+width: 100%;
+height: 100px;
+color: aliceblue;
+}
+.cuerp_pag{
+    background-color: rgba(14, 224, 224, 0);
+    width: 100%;
+    height:auto;
+}
+
+
+
+/*Productos*/
+.c1{
+    display:flex;
+    flex-direction:column;
+    background-color: rgba(20, 207, 214, 0);
+    height: auto;
+    margin-bottom: 20px;
+}
+.nuev_cont{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    background-color: rgba(0, 255, 255, 0);
+}
+.container_video{
+    background-color: rgba(0, 255, 255, 0);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(255, 255, 255);
+    
+   
+}
+.produc_prin{
+display: flex;
+flex-direction: column;
+align-items: center;
+width: auto;
+background-color: rgb(29, 228, 19);
+flex-wrap: wrap;
+
+}
+.contenidoPrincipal-productos{
+    
+    align-items: center;
+    flex-direction: space-between;
+    align-content: center;
+}
+
+.conten-2{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    background-color: rgb(225, 164, 10);
+}
+.videoSobre{
+    background-color:rgba(0, 0, 0, 0.452);
+    margin-bottom: 50px;
+}
+.titulo_video{
+font-size: 25px;
+padding: 15px;
+text-align: center;
+}
+.descripcion_video{
+    
+    text-align: center;
+    font-size: 1rem;
+    padding: 1.4rem;
+    line-height: 1.5;
+}
+
+/*footer*/
+.container_footer{
+    width: 100%;
+    height: auto;
+    background-color: rgba(201, 201, 201, 0.271);
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 30px;
+}
+.rodapePrincipal-navMap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.marcas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+.container_ventajas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+}
+.container_contactanos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.img_redes{
+    width: 40px;
+}
+.container_redes{
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+
+}
+.container_contactano{
+    display: flex;
+    justify-content: space-between;
+
+}
+.container_sobreNosotros{
+    height: auto;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+}
+.tit_sobre{
+    font-size: 25px;
+    margin-top: 20px;
+    color: rgb(218, 218, 218);
+
+
+}
+.text_sobre{
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 16px;
+    padding: 5px;
+    line-height: 1.5;
+    color: rgb(181, 182, 184);;
+}
