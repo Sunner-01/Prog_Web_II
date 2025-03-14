@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar elemento con removeChild</title>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="elementoEliminado"> Elemento null</div>
+    </div>
+    <script>
+        const elementoElimin=document.getElementById('elementoEliminado');
+        const elementoPadre=elementoElimin.parentElement;
+        elementoPadre.removeChild(elementoElimin)
+    </script>
+</body>
+</html>

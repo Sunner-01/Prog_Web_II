@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevenir accion por defecto</title>
+</head>
+<body>
+    <div id="enlace" href="https://youtu.be/4m7kcGUdrvs?si=yaaHFXF2iqJ-W3hp">Enlace</div>
+    <script>
+        const enlace=document.getElementById('enlace');
+        enlace.addEventListener('click',(evento)=>{
+            evento.preventDefault();
+            alert('Enlace Bloqueado')})
+    </script>
+</body>
+</html>
