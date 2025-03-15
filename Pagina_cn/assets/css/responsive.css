@@ -221,12 +221,6 @@
 /* Tablets: dispositivos con ancho entre 768px y 1024px */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .head{
-        color:#fc32cd;
-        width: auto;
-        display: flex;
-        align-items:center;
-        align-content: end;
-
         padding-top: .5rem;
         padding-bottom: .5rem;
         background-color:#00AEEF;
@@ -234,7 +228,7 @@
         justify-content:center;
         margin: 0;
         height: 120px;
-        justify-content: space-between;
+        
     
     }
     .head__logo{
