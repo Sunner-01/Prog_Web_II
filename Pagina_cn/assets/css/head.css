@@ -3,10 +3,10 @@
     width: 100%;
     box-sizing: border-box;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: absolute;
     
+    align-items: center;
+    
+    background: #e1e10c;
     padding-top: .5rem;
     padding-bottom: .5rem;
     background-color:#00AEEF;
@@ -32,7 +32,7 @@ margin-right:100px ;
     width: 500px;
 }
 .head__link{
-    background-color: #8fd3eb00;
+    background-color: #17baf5;
     font-family: 'Roboto', sans-serif;
    border-radius: 15px;
    font-size: 1.3rem;
