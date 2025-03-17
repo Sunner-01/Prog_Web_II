@@ -125,3 +125,21 @@ form {
 .noTasks {
   font-size: 48px;
 }
+
+.sendIcon {
+  color: #007bff;
+  cursor: pointer;
+  margin-left: 10px; 
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.sendIcon:hover {
+  color: #0056b3; 
+}
+
+.sendIcon.disabled {
+  color: #42e942; 
+  cursor: not-allowed;
+}
+
