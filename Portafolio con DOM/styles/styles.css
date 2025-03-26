@@ -292,9 +292,18 @@ body {
     }
 }
 
+.projects-section1{
+    background: #0057b300;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
+}
+.projects-title{
+    font-size: 2.5rem;
+    font-family: var(--fuente-montserrat);
+}
 
-/* Estilos para la sección de proyectos */
 .proyectos {
     padding: 5% 15%;
     display: flex;
@@ -305,16 +314,14 @@ body {
 .proyectos__titulo {
     font-size: 2rem;
     font-family: var(--fuente-krona);
-    color: #000000; /* Negro en modo claro */
+    color: #000000; 
 }
 
-body.dark-mode .proyectos__titulo {
-    color: var(--color-secundaria); /* Blanco grisáceo en modo oscuro */
-}
+
 
 .proyectos__btn {
-    background-color: #008000; /* Verde oscuro en modo claro */
-    color: #ffffff;
+    background-color:var(--color-terciaria); 
+    color: #6e6060;
     border: none;
     padding: 10px 20px;
     font-family: var(--fuente-montserrat);
@@ -322,11 +329,10 @@ body.dark-mode .proyectos__titulo {
     cursor: pointer;
     border-radius: 5px;
     margin-right: 10px;
+    width: 180px;
 }
 
-body.dark-mode .proyectos__btn {
-    background-color: var(--color-terciaria); /* Verde brillante en modo oscuro */
-}
+
 
 .proyectos__btn:hover {
     background-color: var(--color-hover);
@@ -339,18 +345,15 @@ body.dark-mode .proyectos__btn {
 }
 
 .proyectos__card {
-    background-color: #f0f0f0; /* Gris claro en modo claro */
-    border: 2px solid #008000;
+    background-color: #ffffff8e; 
+    border: 2px solid var(--color-terciaria);
     border-radius: 10px;
     padding: 20px;
     width: 300px;
     box-sizing: border-box;
 }
 
-body.dark-mode .proyectos__card {
-    background-color: #333333; /* Gris oscuro en modo oscuro */
-    border-color: var(--color-terciaria);
-}
+
 
 .proyectos__card img {
     width: 100%;
@@ -362,7 +365,7 @@ body.dark-mode .proyectos__card {
 .proyectos__card h3 {
     font-family: var(--fuente-krona);
     font-size: 1.5rem;
-    color: #000000; /* Negro en modo claro */
+    color: #000000; 
     margin-bottom: 10px;
 }
 
@@ -373,7 +376,7 @@ body.dark-mode .proyectos__card h3 {
 .proyectos__card p {
     font-family: var(--fuente-montserrat);
     font-size: 1rem;
-    color: #000000; /* Negro en modo claro */
+    color: #000000; 
     margin-bottom: 10px;
 }
 
@@ -382,7 +385,7 @@ body.dark-mode .proyectos__card p {
 }
 
 .proyectos__card .delete-btn {
-    background-color: #ff4444; /* Rojo para eliminar */
+    background-color: #000000; 
     color: #ffffff;
     border: none;
     padding: 5px 10px;
@@ -394,11 +397,11 @@ body.dark-mode .proyectos__card p {
 }
 
 .proyectos__card .delete-btn:hover {
-    background-color: #cc0000;
+    background-color: #4d4a4a;
 }
 
 .proyectos__card .share-btn {
-    background-color: #0080ff; /* Azul para compartir */
+    background-color: #14b63f; 
     color: #ffffff;
     border: none;
     padding: 5px 10px;
@@ -408,22 +411,20 @@ body.dark-mode .proyectos__card p {
     border-radius: 5px;
 }
 
-body.dark-mode .proyectos__card .share-btn {
-    background-color: #00b3ff; /* Azul más claro en modo oscuro */
-}
+
 
 .proyectos__card .share-btn:hover {
-    background-color: #0056b3;
+    background-color: #048325;
 }
 
-/* Estilos para la ventana emergente */
+
 .proyectos__modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    background-color: rgba(0, 0, 0, 0.623);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -431,24 +432,20 @@ body.dark-mode .proyectos__card .share-btn {
 }
 
 .proyectos__form {
-    background-color: #ffffff; /* Blanco en modo claro */
+    background-color: #ffffff88; 
     padding: 20px;
-    border: 2px solid #008000;
+    border: 2px solid var(--color-terciaria);
     border-radius: 10px;
     width: 90%;
     max-width: 400px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-body.dark-mode .proyectos__form {
-    background-color: #333333; /* Gris oscuro en modo oscuro */
-    border-color: var(--color-terciaria);
-}
 
 .proyectos__form label {
     font-family: var(--fuente-montserrat);
     font-size: 1rem;
-    color: #000000; /* Negro en modo claro */
+    color: #000000; 
     display: block;
     margin-bottom: 5px;
 }
@@ -462,7 +459,7 @@ body.dark-mode .proyectos__form label {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
-    border: 1px solid #008000;
+    border: 1px solid var(--color-terciaria);
     border-radius: 5px;
     font-family: var(--fuente-montserrat);
     box-sizing: border-box;
@@ -476,7 +473,7 @@ body.dark-mode .proyectos__form textarea {
 }
 
 .proyectos__form button {
-    background-color: #008000; /* Verde oscuro en modo claro */
+    background-color: var(--color-terciaria); 
     color: #ffffff;
     border: none;
     padding: 10px 20px;
