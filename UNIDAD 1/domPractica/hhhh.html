@@ -1,0 +1,86 @@
+A continuación te muestro un ejemplo de cómo podrías estructurar el código en tu archivo script.js para cumplir con los requisitos usando data attributes. Puedes adaptar y separar funciones en módulos si lo deseas, pero aquí se muestra una versión centralizada para que se entienda la lógica.
+
+js
+Copiar
+Editar
+// Selección de elementos usando data attributes
+const input = document.querySelector('[data-input]');
+const addBtn = document.querySelector('[data-btn-add]');
+const taskList = document.querySelector('[data-list]');
+const outputDiv = document.querySelector('[data-ouput]'); // Notar: en el HTML se define "data-ouput"
+const toggleBtn = document.getElementById('toggleBtn');
+const countBtn = document.getElementById('countBtn');
+
+// Función para crear un nuevo item en la lista
+const addTask = (evento) => {
+  evento.preventDefault();
+  
+  const value = input.value.trim();
+  if (!value) {
+    alert('Por favor ingrese una tarea');
+    return;
+  }
+  
+  // Crear un nuevo elemento <li> con clase "item" (o "task" según se prefiera)
+  const li = document.createElement('li');
+  li.classList.add('item', 'task');
+  li.innerText = value;
+  
+  // Agregar funcionalidad para alternar la clase "relleno" al hacer click
+  li.addEventListener('click', () => {
+    li.classList.toggle('relleno');
+  });
+  
+  // Agregar funcionalidad para eliminar el elemento con doble click
+  li.addEventListener('dblclick', () => {
+    li.remove();
+  });
+  
+  // Añadir el elemento a la lista
+  taskList.appendChild(li);
+  
+  // Limpiar el input
+  input.value = '';
+};
+
+// Función para tachar el último elemento de la lista
+const toggleLastTask = () => {
+  const items = taskList.querySelectorAll('li');
+  if (items.length === 0) return;
+  const lastItem = items[items.length - 1];
+  lastItem.classList.add('tachado');
+};
+
+// Función para contar los items y mostrarlos en el div de output
+const countTasks = () => {
+  const count = taskList.querySelectorAll('li').length;
+  outputDiv.innerText = `Total de ítems: ${count}`;
+};
+
+// Eventos
+addBtn.addEventListener('click', addTask);
+toggleBtn.addEventListener('click', toggleLastTask);
+countBtn.addEventListener('click', countTasks);
+Explicación de la solución
+Selección de elementos:
+Se usan los data attributes definidos en el HTML para seleccionar los elementos (data-input, data-btn-add, data-list y data-ouput). Se usan también getElementById para botones adicionales.
+
+Agregar nuevos elementos:
+
+Se captura el valor del input al hacer clic en "Agregar".
+
+Si el input está vacío, se muestra un alert.
+
+Se crea un elemento <li> y se le añaden las clases necesarias.
+
+Se adjuntan dos event listeners: uno para hacer toggle de la clase "relleno" al hacer click y otro para eliminar el item al hacer doble click.
+
+Se añade el elemento a la lista y se limpia el input.
+
+Funcionalidad del botón "Tachar Último":
+Al hacer clic en el botón "Tachar Último", se selecciona el último <li> de la lista y se le aplica la clase "tachado", que define la línea de tachado y color.
+
+Contador de ítems:
+Se cuenta la cantidad de elementos <li> dentro de la lista y se muestra el resultado en el div de salida.
+
+Este código cumple con las actividades solicitadas y utiliza los data attributes de forma similar al ejemplo inicial. ¡Espero que te sea de ayuda para tu tarea!

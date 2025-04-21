@@ -1,0 +1,93 @@
+tengo esta estructura html :
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación DOM</title>
+    <style>
+        .task { padding: 10px; margin: 5px; border: 1px solid #ccc; }
+        .relleno { background-color: yellow; }
+        .tachado { text-decoration: line-through; color: #999; }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section class="ventana">
+        <div id="container">
+            <h2>Lista de Tareas</h2>
+            <input type="text" id="newItem" placeholder="Nueva tarea" data-input>
+            <button id="addBtn" data-btn-add>Agregar</button>
+            <ul id="taskList" data-list>
+                <li class="item">Tarea de ejemplo 1</li>
+                <li class="item">Tarea de ejemplo 2</li>
+            </ul>
+            
+            <div id="controls">
+                <button id="toggleBtn" data-btn-tachar>Tachar Último</button>
+                <button id="countBtn"data-btn-contar>Contar Items</button>
+            </div>
+            <div id="output" data-ouput></div>
+        </div>
+    </section>
+</main>
+    
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
+quiero que me ayudes a hacer las siguientes cosas :
+2. Agregar nuevos elementos:
+   - a. Al hacer clic en el botón "Agregar", toma el valor del input y añade un nuevo elemento a la lista.
+   - b. Limpia el input después de agregar.
+   - c. Si el input está vacío, muestra un alert.
+
+3. Aplicar clase "relleno":
+   - a. Implementa que al hacer clic en cualquier elemento de la lista, se aplique la clase "relleno" (se aplica relleno al hacer clic; en caso de que esté relleno se quita).
+
+4. Funcionalidad del botón "Tachar Último":
+   - a. Al hacer clic, aplica la clase tachado en el último ítem de la lista.
+
+5. Contador de ítems:
+   - a. Al hacer clic en el botón "Contar Ítems", muestra en el div id= "output" la cantidad total de ítems en la lista.
+
+6. Doble clic para eliminar:
+   - a. Implementa que al hacer doble clic en cualquier elemento de la lista, este se elimine.
+
+   quiero manejar los data set que ves en la estructura ,y tambien quiero manejar varios archivos js para las funciones y llamarlos desde un js principal , por ahora solo tengo esto en js:
+   (()=>{
+    const btn = document.querySelector('[data-btn-add]');
+    
+    console.log(btn);
+    
+    const createTask=(evento)=>{
+        evento.preventDefault();
+        const input =document.querySelector('[data-input]');
+        console.log(input.value);
+        const value =input.value;
+        const list= document.querySelector('[data-list]')
+        const task=document.createElement('item')
+        
+        input.value='';
+       
+        const contTask=document.createElement('item');
+  
+        const titleTask=document.createElement('li');
+        titleTask.classList.add('item');
+        titleTask.innerText=value;
+        
+        contTask.appendChild(titleTask);
+    
+        task.appendChild(contTask)
+       
+        list.appendChild(task);
+        
+    }
+    
+    btn.addEventListener('click',createTask);
+    
+    
+
+    })();
+     cabe recalcar que estamos usando DOM

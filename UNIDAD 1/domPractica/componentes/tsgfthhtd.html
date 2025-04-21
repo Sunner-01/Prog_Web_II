@@ -1,0 +1,261 @@
+A continuación te muestro cómo quedaría el código modular usando arrow functions y variables en español. La estructura de archivos será similar a la siguiente:
+
+bash
+Copiar
+Editar
+/proyecto
+  index.html
+  script.js
+  /modulos
+    agregarTarea.js
+    alternarRelleno.js
+    tacharUltima.js
+    contarTareas.js
+    eliminarTarea.js
+Puedes ajustar la organización de carpetas según tus necesidades.
+
+1. index.html
+Incluye el script principal como módulo para poder usar imports.
+
+html
+Copiar
+Editar
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación DOM</title>
+    <style>
+        .tarea { padding: 10px; margin: 5px; border: 1px solid #ccc; }
+        .relleno { background-color: yellow; }
+        .tachado { text-decoration: line-through; color: #999; }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section class="ventana">
+            <div id="container">
+                <h2>Lista de Tareas</h2>
+                <input type="text" id="nuevoItem" placeholder="Nueva tarea" data-input>
+                <button id="agregarBtn" data-btn-agregar>Agregar</button>
+                <ul id="listaTareas" data-list>
+                    <li class="item">Tarea de ejemplo 1</li>
+                    <li class="item">Tarea de ejemplo 2</li>
+                </ul>
+                
+                <div id="controles">
+                    <button id="tacharBtn" data-btn-tachar>Tachar Último</button>
+                    <button id="contarBtn" data-btn-contar>Contar Items</button>
+                </div>
+                <div id="salida" data-ouput></div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Cargamos el script principal como módulo -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
+2. script.js (Archivo principal)
+Importamos los módulos y asignamos los event listeners usando arrow functions y variables en español.
+
+js
+Copiar
+Editar
+import { crearTarea } from './modulos/agregarTarea.js';
+import { iniciarAlternarRelleno } from './modulos/alternarRelleno.js';
+import { tacharUltimaTarea } from './modulos/tacharUltima.js';
+import { contarTareas } from './modulos/contarTareas.js';
+import { iniciarEliminarTarea } from './modulos/eliminarTarea.js';
+
+(() => {
+  // Seleccionar botones mediante data attributes
+  const btnAgregar = document.querySelector('[data-btn-agregar]');
+  const btnTachar = document.querySelector('[data-btn-tachar]');
+  const btnContar = document.querySelector('[data-btn-contar]');
+
+  // Asignamos eventos usando arrow functions
+  btnAgregar.addEventListener('click', crearTarea);
+  btnTachar.addEventListener('click', tacharUltimaTarea);
+  btnContar.addEventListener('click', contarTareas);
+
+  // Inicializamos la funcionalidad para los elementos existentes
+  iniciarAlternarRelleno();
+  iniciarEliminarTarea();
+})();
+3. modulos/agregarTarea.js
+Este módulo se encarga de agregar nuevas tareas a la lista. Se usan variables en español y arrow functions.
+
+js
+Copiar
+Editar
+export const crearTarea = (evento) => {
+  evento.preventDefault();
+  const entrada = document.querySelector('[data-input]');
+  const valor = entrada.value.trim();
+
+  if (!valor) {
+    alert('Por favor ingresa una tarea');
+    return;
+  }
+
+  const lista = document.querySelector('[data-list]');
+  
+  // Creamos el elemento <li> y le asignamos las clases correspondientes
+  const li = document.createElement('li');
+  li.classList.add('item', 'tarea');
+  li.innerText = valor;
+  
+  // Alternar clase "relleno" al hacer clic
+  li.addEventListener('click', () => li.classList.toggle('relleno'));
+  
+  // Eliminar tarea al hacer doble clic
+  li.addEventListener('dblclick', () => li.remove());
+  
+  lista.appendChild(li);
+  entrada.value = ''; // Limpiar el input
+};
+4. modulos/alternarRelleno.js
+Este módulo asigna la funcionalidad para que los elementos existentes alternen la clase "relleno" al hacer clic.
+
+js
+Copiar
+Editar
+export const iniciarAlternarRelleno = () => {
+  const lista = document.querySelector('[data-list]');
+  const elementos = lista.querySelectorAll('li.item');
+  elementos.forEach(elemento => {
+    elemento.addEventListener('click', () => elemento.classList.toggle('relleno'));
+  });
+};
+5. modulos/tacharUltima.js
+Este módulo aplica (o quita) la clase "tachado" al último ítem de la lista.
+
+js
+Copiar
+Editar
+export const tacharUltimaTarea = () => {
+  const lista = document.querySelector('[data-list]');
+  const elementos = lista.querySelectorAll('li.item');
+  if (elementos.length === 0) return;
+  const ultimoElemento = elementos[elementos.length - 1];
+  ultimoElemento.classList.toggle('tachado');
+};
+6. modulos/contarTareas.js
+Este módulo cuenta los ítems de la lista y muestra el total en el elemento de salida.
+
+js
+Copiar
+Editar
+export const contarTareas = () => {
+  const lista = document.querySelector('[data-list]');
+  const total = lista.querySelectorAll('li.item').length;
+  const salida = document.querySelector('[data-ouput]');
+  salida.innerText = `Total de ítems: ${total}`;
+};
+7. modulos/eliminarTarea.js
+Este módulo inicializa la funcionalidad para eliminar tareas mediante doble clic, utilizando delegación de eventos.
+
+js
+Copiar
+Editar
+export const iniciarEliminarTarea = () => {
+  const lista = document.querySelector('[data-list]');
+  lista.addEventListener('dblclick', (evento) => {
+    if (evento.target && evento.target.matches('li.item')) {
+      evento.target.remove();
+    }
+  });
+};
+Resumen
+Agregar Tareas:
+La función crearTarea (en agregarTarea.js) verifica que el campo de entrada no esté vacío, crea un elemento <li> con clases "item" y "tarea", asigna los eventos para alternar la clase "relleno" y para eliminarlo con doble clic, lo añade a la lista y limpia el campo.
+
+Alternar "relleno":
+La función iniciarAlternarRelleno (en alternarRelleno.js) asigna el evento a los elementos existentes para alternar la clase "relleno" al hacer clic.
+
+Tachar Último:
+La función tacharUltimaTarea (en tacharUltima.js) selecciona el último elemento de la lista y alterna la clase "tachado".
+
+Contar Tareas:
+La función contarTareas (en contarTareas.js) cuenta los elementos <li> con la clase "item" y muestra el total en el div de salida.
+
+Eliminar con Doble Clic:
+La función iniciarEliminarTarea (en eliminarTarea.js) utiliza delegación de eventos para eliminar cualquier elemento <li> al hacer doble clic.
+
+Esta solución modular, con variables y funciones en español y utilizando arrow functions, te permitirá tener un código or
+
+
+
+// Función para agregar nuevas tareas
+const crearTarea = (evento) => {
+  evento.preventDefault();
+  const entrada = document.querySelector('[data-input]');
+  const valor = entrada.value.trim();
+
+  if (!valor) {
+    alert('Por favor ingresa una tarea');
+    return;
+  }
+
+  const lista = document.querySelector('[data-list]');
+  
+  // Crear el elemento <li> con las clases correspondientes
+  const li = document.createElement('li');
+  li.classList.add('item', 'tarea');
+  li.innerText = valor;
+  
+  // Al hacer clic, alternar la clase "relleno"
+  li.addEventListener('click', () => li.classList.toggle('relleno'));
+  
+  // Al hacer doble clic, eliminar la tarea
+  li.addEventListener('dblclick', () => li.remove());
+  
+  lista.appendChild(li);
+  entrada.value = ''; // Limpiar el input
+};
+
+// Función para asignar la funcionalidad de alternar "relleno" a los ítems existentes
+const iniciarAlternarRelleno = () => {
+  const lista = document.querySelector('[data-list]');
+  const elementos = lista.querySelectorAll('li.item');
+  elementos.forEach(elemento => {
+    elemento.addEventListener('click', () => elemento.classList.toggle('relleno'));
+  });
+};
+
+// Función para tachar (alternar la clase "tachado") el último ítem de la lista
+const tacharUltimaTarea = () => {
+  const lista = document.querySelector('[data-list]');
+  const elementos = lista.querySelectorAll('li.item');
+  if (elementos.length === 0) return;
+  const ultimoElemento = elementos[elementos.length - 1];
+  ultimoElemento.classList.toggle('tachado');
+};
+
+// Función para contar el número de ítems en la lista y mostrarlo en el div de salida
+const contarTareas = () => {
+  const lista = document.querySelector('[data-list]');
+  const total = lista.querySelectorAll('li.item').length;
+  const salida = document.querySelector('[data-ouput]');
+  salida.innerText = `Total de ítems: ${total}`;
+};
+
+// Función para eliminar tareas al hacer doble clic (delegación de eventos)
+const iniciarEliminarTarea = () => {
+  const lista = document.querySelector('[data-list]');
+  lista.addEventListener('dblclick', (evento) => {
+    if (evento.target && evento.target.matches('li.item')) {
+      evento.target.remove();
+    }
+  });
+};
+
+(() => {
+  // Seleccionar botones mediante data attributes
+  const btnAgregar = document.querySelector('[data-btn-agregar]');
+  const btnTachar = document.querySelector('[data-btn-tachar]');
+  const btnContar = document.querySelector('[data-btn-contar]');
+
+  // Asignar eventos

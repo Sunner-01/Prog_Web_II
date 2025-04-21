@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(to right bottom, #ad0022, #c74161, #d47199, #da9fc7, #e2cae7, #d1c5da, #c3c0ca, #b9b9b9, #878787, #585858, #2e2e2e, #000000);
+}
+
+.ventana {
+    background-color: #ffffff86;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    height: 400px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#newItem {
+    width: 70%;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #1b1b1b;
+    border-radius: 5px;
+    outline: none;
+}
+
+#addBtn {
+    padding: 8px 15px;
+    background-color: #47434394;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#addBtn:hover {
+    background-color: #222222;
+}
+
+#taskList {
+    list-style: none;
+    margin: 15px 0;
+}
+
+.item {
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #454545;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+#toggleBtn, #countBtn {
+    padding: 8px 15px;
+    background-color: #47434394;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toggleBtn:hover, #countBtn:hover {
+    background-color: #212422;
+}
+
+#output {
+    
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}

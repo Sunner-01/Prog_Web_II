@@ -1,0 +1,40 @@
+{
+  "perfil": [
+    {
+      "nombre": "Osmer",
+      "email": "osmer01@gmail.com",
+      "id": "6dd9c7a3-cdc0-4d83-9e2d-57989841b0cf"
+    },
+    {
+      "nombre": "Sunner Barrera",
+      "email": "sunerbarrera228@gmail.com",
+      "id": "41fd3ff8-5682-47c2-9f7d-3ec80853cf68"
+    }
+  ],
+  "productos": [
+    {
+      "nombre": "Croquetas Premium",
+      "precio": "600",
+      "descripcion": "Bolsa de 5kg de croquetas para perros adultos.",
+      "id": "b2a79f12-3b87-4d9f-a8c5-7dcf4dce2a73"
+    },
+    {
+      "nombre": "Croquetas normales",
+      "precio": "300",
+      "descripcion": "Bolsa de 5kg de croquetas para perros adultos.",
+      "id": "b2a79f12-3b87-4d9f-a8c5-7dcf4dce2a73"
+    },
+    {
+      "nombre": "Arina Para Gato",
+      "precio": "600",
+      "descripcion": "Arina especial para su gato.",
+      "id": "ed2bc6ba-ecce-46d2-9f8a-7b0902b7250f"
+    },
+    {
+      "nombre": "otra cosa",
+      "precio": "1500",
+      "descripcion": "522fsdgbvsdf",
+      "id": "2d3d4307-ba92-4062-a055-6efe0822df31"
+    }
+  ]
+}
