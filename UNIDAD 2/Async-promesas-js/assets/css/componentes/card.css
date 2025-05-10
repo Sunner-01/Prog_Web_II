@@ -49,7 +49,7 @@
 
 
 .button {
-  background-color: #0064c1; /* naranja estilo Doguito */
+  background-color: #0064c1; 
   color: white;
   padding: 12px 24px;
   border: none;
@@ -64,7 +64,7 @@
 }
 
 .button:hover {
-  background-color: #033cb65d; /* un poco más oscuro al hacer hover */
+  background-color: #033cb65d;
 }
 
 .button:active {

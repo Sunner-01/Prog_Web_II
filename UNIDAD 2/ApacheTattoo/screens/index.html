@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apache Tattoo Studio | Inicio</title>
+    <link rel="icon" href="../assets/img/logo.svg" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Grenze:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+    <header class="header container">
+        <h1 class="header__logo">Apache Tattoo Studio</h1>
+        <nav>
+            <ul class="header__list-nav">
+                <li class="header__link header__link--active"><a href="index.html">Inicio</a></li>
+                <li class="header__link"><a href="productos.html">Productos</a></li>
+                <li class="header__link"><a href="trabajos.html">Mis trabajos</a></li>
+                <li class="header__link"><a href="clientes.html">Clientes</a></li>
+                <li class="header__link"><a href="citas.html">Citas</a></li>
+                <li class="header__link"><a href="artistas.html">Artistas</a></li>
+                <li class="header__link"><a href="administracion.html">Administración</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="carousel">
+            <div class="carousel__inner">
+                <div class="carousel__item active">
+                    <img src="../assets/img/c1.jpg" alt="Tatuaje 1" />
+                    <div class="carousel__caption">
+                        <h2>Arte en la piel</h2>
+                        <p>Descubre nuestros diseños únicos</p>
+                    </div>
+                </div>
+                <div class="carousel__item">
+                    <img src="../assets/img/c2.jpeg" alt="Tatuaje 2" />
+                    <div class="carousel__caption">
+                        <h2>Calidad profesional</h2>
+                        <p>Productos de alta calidad para tus tatuajes</p>
+                    </div>
+                </div>
+                <div class="carousel__item">
+                    <img src="../assets/img/c3.jpg" alt="Tatuaje 3" />
+                    <div class="carousel__caption">
+                        <h2>Nuestros artistas</h2>
+                        <p>Conoce a nuestro equipo creativo</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel__control carousel__control--prev">❮</button>
+            <button class="carousel__control carousel__control--next">❯</button>
+            <div class="carousel__indicators">
+                <span class="carousel__indicator active" data-slide="0"></span>
+                <span class="carousel__indicator" data-slide="1"></span>
+                <span class="carousel__indicator" data-slide="2"></span>
+            </div>
+        </section>
+        <section class="welcome">
+            <h2 class="welcome__title">Bienvenido a Apache Tattoo Studio</h2>
+            <p class="welcome__text">En Apache Tattoo Studio, ofrecemos los mejores servicios de tatuajes con artistas profesionales y productos de alta calidad. ¡Explora nuestro trabajo y agenda tu cita hoy!</p>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__section">
+                <h3 class="footer__title">Apache Tattoo Studio</h3>
+                <p>Arte en la piel con pasión y calidad.</p>
+                <p>© 2025 - Todos los derechos reservados</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Contacto</h3>
+                <p>Dirección: Av. América 123, Cochabamba, Bolivia</p>
+                <p>Teléfono: +591 4 1234567</p>
+                <p>Email: info@apachetattoo.com</p>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Navegación</h3>
+                <ul class="footer__links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="trabajos.html">Trabajos</a></li>
+                    <li><a href="clientes.html">Clientes</a></li>
+                    <li><a href="citas.html">Citas</a></li>
+                    <li><a href="artistas.html">Artistas</a></li>
+                </ul>
+            </div>
+            <div class="footer__section">
+                <h3 class="footer__title">Síguenos</h3>
+                <div class="footer__social">
+                    <a href="https://facebook.com" target="_blank" class="footer__social-link">Facebook</a>
+                    <a href="https://instagram.com" target="_blank" class="footer__social-link">Instagram</a>
+                    <a href="https://twitter.com" target="_blank" class="footer__social-link">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="../assets/js/carousel.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
@@ -8,11 +8,13 @@
     <link rel="icon" href="../assets/img/doguitoadm.svg" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/base/base.css" />
+
+   <link rel="stylesheet" href="../assets/css/base/base.css" />
     <link rel="stylesheet" href="../assets/css/componentes/header.css" />
-    <link rel="stylesheet" href="../assets/css/lista_productos.css" />
+    <link rel="stylesheet" href="../assets/css/lista_cliente.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/table.css" />
     <link rel="stylesheet" href="../assets/css/componentes/button.css" />
-    <link rel="stylesheet" href="../assets/css/componentes/card.css">
+    <link rel="stylesheet" href="../assets/css/componentes/modal.css" />
 </head>
 
 <body>
@@ -21,24 +23,31 @@
         <nav>
             <ul class="header__list-nav">
                 <li class="header__link"><a href="#">Dashboard</a></li>
-                <li class="header__link header__link--active"><a href="#">Productos</a></li>
-                <li class="header__link"><a href="lista_cliente.html">Clientes</a></li>
-                <li class="header__link"><a href="#">Pets</a></li>
+                <li class="header__link header__link--active"><a href="./lista_productos.html">Productos</a></li>
+                <li class="header__link"><a href="./lista_cliente.html">Clientes</a></li>
+                <li class="header__link"><a href="lista_mascota.html">Mascotas</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
-        <div class="actions">
-            <a href="registrar_producto.html" class="simple-button simple-button--add">
-                Nuevo producto
-            </a>
-        </div>
-        <div class="cards-container" data-cards-container>
-            
+    <main class="clientes-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="table__column--p">Nombre</th>
+                    <th class="table__column--g">Descripción</th>
+                    <th class="table__column--m">Precio</th>
+                    <th class="table__column--m table__align--right">
+                        <a href="./registrar_producto.html" class="simple-button simple-button--add">Nuevo Producto</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody data-table>
+                <!-- Los productos serán agregados aquí dinámicamente -->
+            </tbody>
+        </table>
 
-            
-        </div>
+       
     </main>
 
     <script type="module" src="../controllers/product-controller.js"></script>

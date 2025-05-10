@@ -1,108 +1,109 @@
-/*const crear_nueva_fila=(nombre,email)=>{// recepciono datos 
-    const fila = document.createElement('tr');// creo una nueva filla en la tabla
-    //guardo html en una variable y tambien llamo a mis datos de entrada
-    const contenido = `
-            <td class="td" data-td>
-            ${nombre}
-            </td>
-            <td>${email}</td>
-            <td>
-            <ul class="table__button-control">
-                <li>
-                    <a
-                    href="../screens/editar_cliente.html"
-                    class="simple-button simple-button--edit"
-                    >Editar</a
-                    >
-                </li>
-                <li>
-                    <button
-                    class="simple-button simple-button--delete"
-                    type="button"
-                    >
-                    Eliminar
-                    </button>
-                </li>
-                </ul>
-            </td>
-            `;
-        fila.innerHTML=contenido;
-        return fila; 
-};x
+const API_BASE_URL = 'http://localhost/Api1/conexion.php';
 
-
-const table = document.querySelector("[data-table]");
-*/
-
-/*const lista_clientes=()=>{ metodo antiguo
-    const promesa= new Promise((resolve,reject)=>{
-        const http = new XMLHttpRequest();//variable con request http y xml
-        http.open("GET","http://localhost:3000/perfil");
-        http.send();
-        http.onload=()=>{
-            const response = JSON.parse(http.response);//convierto que mi respuesta hhtp sea json
-            if(http.response>=400){
-                reject(response)
-            } else{
-                resolve(response)
-            }
-        };
-    });
-    return promesa;
-}*/
-
-
-
-/*
-lista_clientes()
-    .then((data)=>{
-        data.forEach((perfil)=>{
-            const nuevafila= crear_nueva_fila(perfil.nombre,perfil.email);
-            table.appendChild(nuevafila)
+// Obtener lista de clientes
+const listaclientes = () => {
+    return fetch(API_BASE_URL)
+        .then(response => {
+            if (!response.ok) throw new Error(`Error al obtener perfiles: ${response.status}`);
+            return response.json();
+        })
+        .catch(err => {
+            console.error("Error en listaclientes:", err);
+            throw err;
         });
-    })
-    .catch((error)=> alert("No existe conexión"));
+};
 
-*/
-
-//---------optimizado---------
-const listaclientes=()=> fetch("http://localhost:3000/perfil").then((respuesta)=>respuesta.json());
-const crearCliente=(nombre,email)=>{
-    return fetch ("http://localhost:3000/perfil",{
-        method:"POST",
-        headers:{
-            "Content-type":"application/json"
+// Crear un nuevo cliente
+const crearCliente = (Nombre, Correo) => {
+    const Id = uuid.v4();
+    console.log("Enviando POST con:", { Id, Nombre, Correo });
+    return fetch(API_BASE_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
         },
-        body:JSON.stringify({nombre,email, id: uuid.v4()})
+        body: JSON.stringify({ 
+            Id,
+            Nombre,
+            Correo,
+            id: Id,
+            nombre: Nombre,
+            correo: Correo
+        })
+    }).then(response => {
+        console.log("Respuesta de POST:", response.status);
+        if (!response.ok) throw new Error(`Error al crear el cliente: ${response.status}`);
+        return response.json();
+    }).catch(err => {
+        console.error("Error en crearCliente:", err);
+        throw err;
     });
-
-};
-const eliminarCliente=(id)=>{
-    console.log("elii",id)
-    return fetch(`http://localhost:3000/perfil/${id}`,{
-        method:"DELETE"
-    });
-
-;}
-// referencia a un cliente del json a travez de id
-const clientes=(id)=>{
-    return fetch(`http://localhost:3000/perfil/${id}`).then((respuesta)=>respuesta.json())}
-
-const actualizarCliente=(nombre,email,id)=>{ // ojoooo solo actualizo nombre y email NO ID
-    return fetch(`http://localhost:3000/perfil/${id}`,
-        {
-            method:"PUT",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({nombre,email})
-
-        }).then(respuesta=>console.log(respuesta)).catch((err)=>console.log(err));
 };
 
+// Eliminar cliente
+const eliminarCliente = (Id) => {
+    console.log("Enviando DELETE para Id:", Id);
+    return fetch(`${API_BASE_URL}?id=${Id}`, {
+        method: "DELETE"
+    }).then(response => {
+        console.log("Respuesta de DELETE:", response.status);
+        if (!response.ok) throw new Error(`Error al eliminar el cliente: ${response.status}`);
+        return response.json();
+    }).catch(err => {
+        console.error("Error en eliminarCliente:", err);
+        throw err;
+    });
+};
 
+// Obtener un cliente por ID
+const clientes = (Id) => {
+    console.log("Enviando GET para Id:", Id);
+    return fetch(`${API_BASE_URL}?id=${Id}`)
+        .then(respuesta => {
+            console.log("Respuesta de GET:", respuesta.status);
+            if (!respuesta.ok) {
+                throw new Error(`Error en la solicitud: ${respuesta.status}`);
+            }
+            return respuesta.json();
+        })
+        .catch(err => {
+            console.error("Error en clientes:", err);
+            throw err;
+        });
+};
 
-export const clientService={
+// Actualizar cliente
+const actualizarCliente = (Nombre, Correo, Id) => { 
+    const payload = {
+        Id,
+        Nombre,
+        Correo,
+        id: Id,
+        nombre: Nombre,
+        correo: Correo
+    };
+    console.log("Enviando PUT con:", payload);
+    return fetch(`${API_BASE_URL}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    }).then(respuesta => {
+        console.log("Respuesta de PUT:", respuesta.status);
+        return respuesta.json().then(data => {
+            console.log("Datos de la API:", data);
+            if (!respuesta.ok) {
+                throw new Error(`Error en la solicitud: ${respuesta.status}`);
+            }
+            return data;
+        });
+    }).catch(err => {
+        console.error("Error en actualizarCliente:", err);
+        throw err;
+    });
+};
+
+// Exportar funciones
+export const clientService = {
     listaclientes,
     crearCliente,
     eliminarCliente,

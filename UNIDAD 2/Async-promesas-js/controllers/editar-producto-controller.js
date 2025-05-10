@@ -1,34 +1,62 @@
 import { productService } from "../service/product-service.js";
 
-const formulario = document.querySelector("form[data-form]");
+const formulario = document.querySelector("[data-form]");
 
-const cargarDatos = async () => {
-  const url = new URL(window.location);
-  const id = url.searchParams.get("id");
-  if (!id) return window.location.href = "./error.html";
+const obtenerInfoProducto = async () => {
+    const url = new URL(window.location);
+    const id = url.searchParams.get("id");
 
-  try {
-    const prod = await productService.obtenerProducto(id);
-    document.querySelector("[data-nombre]").value = prod.nombre;
-    document.querySelector("[data-precio]").value = prod.precio;
-    document.querySelector("[data-descripcion]").value = prod.descripcion;
-  } catch {
-    window.location.href = "./error.html";
-  }
+    if (!id) {
+        console.error("ID no proporcionado en la URL");
+        window.location.href = "../screens/error.html";
+        return;
+    }
+
+    try {
+      const producto = await productService.producto(id);
+        if (!producto || !producto.nombre || !producto.precio || !producto.descripcion) {
+            throw new Error("Producto no encontrado o datos incompletos");
+        }
+
+        document.querySelector("[data-nombre]").value = producto.nombre;
+        document.querySelector("[data-precio]").value = producto.precio;
+        document.querySelector("[data-descripcion]").value = producto.descripcion;
+    } catch (error) {
+        console.error("Error al cargar producto:", error.message);
+        window.location.href = "../screens/error.html";
+    }
 };
 
-cargarDatos();
+formulario.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    const url = new URL(window.location);
+    const id = url.searchParams.get("id");
+    const nombre = document.querySelector('[data-nombre]').value.trim();
+    const precio = document.querySelector('[data-precio]').value.trim();
+    const descripcion = document.querySelector('[data-descripcion]').value.trim();
 
-formulario.addEventListener("submit", evento => {
-  evento.preventDefault();
-  const url = new URL(window.location);
-  const id = url.searchParams.get("id");
+    if (!nombre || !precio || !descripcion) {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
 
-  const nombre = document.querySelector("[data-nombre]").value;
-  const precio = document.querySelector("[data-precio]").value;
-  const descripcion = document.querySelector("[data-descripcion]").value;
+    const precioRegex = /^[0-9]+(\.[0-9]{1,2})?$/;
+    if (!precioRegex.test(precio)) {
+        alert("Por favor, ingresa un precio válido.");
+        return;
+    }
 
-  productService.actualizarProducto(nombre, precio, descripcion, id)
-    .then(() => window.location.href = "./producto_editado.html")
-    .catch(err => console.error("Error al actualizar producto", err));
+    productService.actualizarProducto(nombre, precio, descripcion, id)
+        .then((respuesta) => {
+            if (respuesta.error) {
+                throw new Error(respuesta.error);
+            }
+            window.location.href = "../screens/edicion_concluida.html";
+        })
+        .catch((error) => {
+            console.error("Error al actualizar producto:", error.message);
+            window.location.href = "../screens/error.html";
+        });
 });
+
+obtenerInfoProducto();

@@ -1,0 +1,74 @@
+{
+  "clientes": [
+    {
+      "nombre": "Juan Pérez",
+      "email": "juan@gmail.com",
+      "id": "6dd9c7a3-cdc0-4d83-9e2d-57989841b0cf"
+    },
+    {
+      "nombre": "María López",
+      "email": "maria@gmail.com",
+      "id": "41fd3ff8-5682-47c2-9f7d-3ec80853cf68"
+    }
+  ],
+  "productos": [
+    {
+      "nombre": "Tinta negra",
+      "precio": "500",
+      "descripcion": "Tinta de alta calidad para tatuajes",
+      "id": "b2a79f12-3b87-4d9f-a8c5-7dcf4dce2a73"
+    },
+    {
+      "nombre": "Máquina de tatuar",
+      "precio": "2500",
+      "descripcion": "Máquina profesional para tatuadores",
+      "id": "ed2bc6ba-ecce-46d2-9f8a-7b0902b7250f"
+    },
+    {
+      "nombre": "Maquina Pen",
+      "precio": "1450",
+      "descripcion": "Maquina Bonita",
+      "id": "039ffcf5-bfcf-49b3-ba1f-a7e76e4fa6ab"
+    }
+  ],
+  "citas": [
+    {
+      "cliente": "Juan Pérez",
+      "fecha": "2025-05-01",
+      "hora": "14:00",
+      "id": "c3e8d9b4-edf1-4e8c-a9f3-68990852c1dg"
+    },
+    {
+      "cliente": "María López",
+      "fecha": "2025-05-02",
+      "hora": "16:00",
+      "id": "d4f9e0c5-feg2-5f9d-b0g4-79001963d2eh"
+    }
+  ],
+  "trabajos": [
+    {
+      "titulo": "Tatuaje tribal",
+      "descripcion": "Tatuaje en el brazo con diseño tribal",
+      "id": "e5g0f1d6-gfh3-6g0e-c1h5-8a112074e3fi"
+    },
+    {
+      "titulo": "Tatuaje realista",
+      "descripcion": "Retrato en el pecho",
+      "id": "f6h1g2e7-hgi4-7h1f-d2i6-9b223185f4gj"
+    }
+  ],
+  "artistas": [
+    {
+      "nombre": "Sunner Barrera",
+      "especialidad": "Blackwork",
+      "experiencia": 5,
+      "id": "g7i2h3f8-ihj5-8i2g-e3j7-0c334296g5hk"
+    },
+    {
+      "nombre": "Ana Gómez",
+      "especialidad": "Tatuajes tradicionales",
+      "experiencia": 3,
+      "id": "h8j3i4g9-jik6-9j3h-f4k8-1d445307h6il"
+    }
+  ]
+}

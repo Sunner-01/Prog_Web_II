@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doguito Petshop | Actualizar mascota</title>
+    <link rel="icon" href="../assets/img/doguitoadm.svg" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/base/base.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/header.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/card.css" />
+    <link rel="stylesheet" href="../assets/css/register_client.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/inputs.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/button.css" />
+  </head>
+  <body>
+    <header class="header container">
+      <img
+        src="../assets/img/doguitoadm.svg"
+        alt="Logo Doguito"
+        class="header__logo"
+      />
+      <nav>
+        <ul class="header__list-nav">
+          <li class="header__link"><a href="#">Dashboard</a></li>
+          <li class="header__link"><a href="lista_productos.html">Productos</a></li>
+          <li class="header__link">
+            <a href="lista_cliente.html">Clientes </a>
+          </li>
+          <li class="header__link"><a href="lista_mascota.html">Mascotas</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container flex flex--center flex--column">
+      <section class="card cadastro">
+        <h1 class="card__title">Editar Mascota</h1>
+        <form class="flex flex--column" data-form>
+          <input
+            name="id_mascota"
+            id="id_mascota"
+            type="hidden"
+            data-id_mascota
+          />
+          <div class="input-container">
+            <input
+              name="nombre"
+              id="nombre"
+              class="input"
+              type="text"
+              placeholder="Nombre"
+              required
+              data-nombre
+            />
+            <label class="input-label" for="nombre">Nombre</label>
+            <span class="input-menssage-error">Este campo es requerido</span>
+          </div>
+          <div class="input-container">
+            <input
+              name="especie"
+              id="especie"
+              class="input"
+              type="text"
+              placeholder="Especie"
+              required
+              data-especie
+            />
+            <label class="input-label" for="especie">Especie</label>
+            <span class="input-menssage-error">Este campo es requerido</span>
+          </div>
+          <div class="input-container">
+            <input
+              name="sexo"
+              id="sexo"
+              class="input"
+              type="text"
+              placeholder="Sexo"
+              required
+              data-sexo
+            />
+            <label class="input-label" for="sexo">Sexo</label>
+            <span class="input-menssage-error">Este campo es requerido</span>
+          </div>
+          <div class="input-container">
+            <input
+              name="fecha_nacimiento"
+              id="fecha_nacimiento"
+              class="input"
+              type="date"
+              placeholder="Fecha de Nacimiento"
+              required
+              data-fecha_nacimiento
+            />
+            <label class="input-label" for="fecha_nacimiento">Fecha de Nacimiento</label>
+            <span class="input-menssage-error">Este campo es requerido</span>
+          </div>
+          <div class="input-container">
+            <select
+              name="id_duenio"
+              id="id_duenio"
+              class="input"
+              required
+              data-id_duenio
+            >
+              <option value="" disabled selected>Selecciona un dueño</option>
+            </select>
+            <label class="input-label" for="id_duenio">Dueño</label>
+            <span class="input-menssage-error">Este campo es requerido</span>
+          </div>
+          <button type="submit" class="button">Editar Mascota</button>
+        </form>
+      </section>
+    </main>
+    <script type="module" src="../controllers/actualizar_mascota_controller.js"></script>
+  </body>
+</html>
