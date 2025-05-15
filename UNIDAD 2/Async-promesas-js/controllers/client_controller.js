@@ -63,8 +63,8 @@ const table = document.querySelector("[data-table]");
 clientService
     .listaclientes()
     .then((data) => {
-        data.forEach(({ Nombre, Correo, Id }) => {  // <-- CORREGIDO aquí
-            const nuevaLinea = crear_nueva_fila(Nombre, Correo, Id); // <-- CORREGIDO aquí
+        data.forEach(({ nombre, correo, id }) => {  
+            const nuevaLinea = crear_nueva_fila(nombre, correo, id); 
             table.appendChild(nuevaLinea);
         });
 

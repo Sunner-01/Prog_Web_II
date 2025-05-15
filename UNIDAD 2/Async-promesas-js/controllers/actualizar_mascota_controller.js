@@ -23,8 +23,8 @@ const cargarDuenios = async () => {
         duenios.forEach(duenio => {
             console.log("Procesando dueño:", duenio);
             const option = document.createElement('option');
-            option.value = duenio.Id;
-            option.textContent = duenio.Nombre;
+            option.value = duenio.id;
+            option.textContent = duenio.nombre;
             selectDuenio.appendChild(option);
         });
     } catch (error) {
@@ -35,23 +35,32 @@ const cargarDuenios = async () => {
 
 const cargarDatosMascota = async () => {
     try {
+        console.log("URL actual:", window.location.href);
         const urlParams = new URLSearchParams(window.location.search);
         const id_mascota = urlParams.get('id');
-        if (!id_mascota) {
-            throw new Error("No se proporcionó el ID de la mascota");
+        console.log("ID de mascota extraído:", id_mascota);
+        if (!id_mascota || id_mascota === "undefined" || id_mascota.trim() === "") {
+            console.error("ID de mascota no proporcionado o inválido en la URL");
+            alert("ID de mascota no válido. Redirigiendo a la lista de mascotas.");
+            setTimeout(() => {
+                window.location.replace("http://127.0.0.1:5502/UNIDAD%202/Async-promesas-js/screens/lista_mascota.html");
+            }, 300);
+            return;
         }
         console.log("Cargando datos de la mascota con id:", id_mascota);
-        const mascota = await mascotaService.obtenerMascota(id_mascota);
-        console.log("Datos de la mascota:", mascota);
-        if (!mascota) {
-            throw new Error("Mascota no encontrada");
+        const mascotas = await mascotaService.obtenerMascota(id_mascota);
+        console.log("Datos de la mascota:", mascotas);
+        if (!mascotas || mascotas.length === 0) {
+            throw new Error("Mascota no encontrada para el ID: " + id_mascota);
         }
-        inputIdMascota.value = mascota.id_mascota;
-        inputNombre.value = mascota.nombre;
-        inputEspecie.value = mascota.especie;
-        inputSexo.value = mascota.sexo;
-        inputFechaNacimiento.value = mascota.fecha_nacimiento;
-        selectDuenio.value = mascota.id_duenio;
+        const mascota = mascotas[0]; 
+        console.log("Mascota seleccionada:", mascota);
+        inputIdMascota.value = mascota.id;
+        inputNombre.value = mascota.nombre || "";
+        inputEspecie.value = mascota.especie || "";
+        inputSexo.value = mascota.sexo || "";
+        inputFechaNacimiento.value = mascota.fecha_nacimiento || "";
+        selectDuenio.value = mascota.id_duenio || "";
 
         // Seleccionar el dueño correspondiente en el select
         const options = selectDuenio.options;
@@ -64,6 +73,9 @@ const cargarDatosMascota = async () => {
     } catch (error) {
         console.error("Error al cargar datos de la mascota:", error.message);
         alert("Error al cargar los datos de la mascota: " + error.message);
+        setTimeout(() => {
+            window.location.replace("http://127.0.0.1:5502/UNIDAD%202/Async-promesas-js/screens/lista_mascota.html");
+        }, 300); 
     }
 };
 
@@ -94,10 +106,10 @@ formulario.addEventListener("submit", (evento) => {
             if (respuesta.error) {
                 throw new Error(respuesta.error);
             }
-            window.location.href = "../screens/registro_completado.html";
+            window.location.replace("http://127.0.0.1:5502/UNIDAD%202/Async-promesas-js/screens/registro_completado.html");
         })
         .catch((error) => {
             console.error("Error al actualizar:", error.message);
-            window.location.href = "../screens/error.html";
+            window.location.replace("http://127.0.0.1:5502/UNIDAD%202/Async-promesas-js/screens/error.html");
         });
 });

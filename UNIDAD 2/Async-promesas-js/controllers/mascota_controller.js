@@ -1,7 +1,7 @@
 import { mascotaService } from "../service/mascota-service.js";
 import { clientService } from "../service/client-service.js";
 
-const crear_nueva_fila = (nombre, especie, sexo, fecha_nacimiento, nombre_duenio, id_mascota) => {
+const crear_nueva_fila = (nombre, especie, sexo, fecha_nacimiento, nombre_duenio, id) => {
     const fila = document.createElement('tr');
     const contenido = `
         <td class="td" data-td>
@@ -15,7 +15,7 @@ const crear_nueva_fila = (nombre, especie, sexo, fecha_nacimiento, nombre_duenio
             <ul class="table__button-control">
                 <li>
                     <a
-                        href="../screens/editar_mascota.html?id=${id_mascota}"
+                        href="../screens/editar_mascota.html?id=${id}"
                         class="simple-button simple-button--edit"
                     >
                         Editar
@@ -25,7 +25,7 @@ const crear_nueva_fila = (nombre, especie, sexo, fecha_nacimiento, nombre_duenio
                     <button
                         class="simple-button simple-button--delete"
                         type="button"
-                        id="${id_mascota}"
+                        id="${id}"
                     >
                         Eliminar
                     </button>
@@ -58,8 +58,8 @@ mascotaService.listarMascotas()
             // Obtener el nombre del dueño desde la tabla perfil
             let nombreDuenio = 'Desconocido';
             try {
-                const duenio = await clientService.clientes(mascot.id_duenio);
-                nombreDuenio = duenio.Nombre || 'Desconocido';
+                const duenioData = await clientService.obtenerCliente(mascot.id_duenio);
+                nombreDuenio = duenioData.length > 0 ? duenioData[0].nombre : 'Desconocido';
             } catch (error) {
                 console.error(`Error al obtener dueño ${mascot.id_duenio}:`, error);
             }
@@ -69,7 +69,7 @@ mascotaService.listarMascotas()
                 mascot.sexo,
                 mascot.fecha_nacimiento,
                 nombreDuenio,
-                mascot.id_mascota
+                mascot.id
             );
             table.appendChild(nuevaLinea);
         }

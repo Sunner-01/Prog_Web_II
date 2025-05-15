@@ -1,3 +1,4 @@
+/*     
 const API_BASE_URL = 'http://localhost/Api1/conexion.php';
 
 // Obtener lista de clientes
@@ -108,5 +109,121 @@ export const clientService = {
     crearCliente,
     eliminarCliente,
     clientes,
+    actualizarCliente
+};
+
+*/
+//////////////////////Conexion Supabase /////////////////////////////////
+
+const SUPABASE_URL = "https://rkkaeohwmcpdaitjoymf.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJra2Flb2h3bWNwZGFpdGpveW1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4NzY5MDcsImV4cCI6MjA2MjQ1MjkwN30.UkJFdUtOVrfmjATmamThZ0kMs0NF4PpzSv2r0ZBb2DU";
+const TABLE = 'perfil';
+const API_URL = `${SUPABASE_URL}/rest/v1/${TABLE}`;
+const headers = {
+    'apikey': SUPABASE_KEY,
+    'Authorization': `Bearer ${SUPABASE_KEY}`,
+    'Content-Type': 'application/json'
+};
+
+const listaclientes = () => {
+    return fetch(`${API_URL}?select=*`, { headers })
+        .then(async res => {
+            if (!res.ok) {
+                const text = await res.text();
+                throw new Error(text || 'Error al listar clientes');
+            }
+            return res.json();
+        });
+};
+
+const crearCliente = (nombre, correo) => {
+    const cliente = {
+        id: uuid.v4(),
+        nombre,
+        correo
+    };
+    return fetch(API_URL, {
+        method: 'POST',
+        headers: {
+            ...headers,
+            'Prefer': 'return=representation' 
+        },
+        body: JSON.stringify(cliente)
+    })
+    .then(async res => {
+        if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text || 'Error al crear cliente');
+        }
+        return res.json(); 
+    })
+    .catch(error => {
+        console.error("Error al crear cliente:", error);
+        throw error;
+    });
+};
+
+const eliminarCliente = (id) => {
+    return fetch(`${API_URL}?id=eq.${id}`, {
+        method: 'DELETE',
+        headers
+    })
+    .then(async res => {
+        if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text || 'Error al eliminar cliente');
+        }
+        return res.text();
+    })
+    .catch(error => {
+        console.error("Error al eliminar cliente:", error);
+        throw error;
+    });
+};
+
+const obtenerCliente = (id) => {
+    return fetch(`${API_URL}?id=eq.${id}`, {
+        headers
+    })
+    .then(async res => {
+        if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text || 'Error al obtener cliente');
+        }
+        return res.json();
+    })
+    .catch(error => {
+        console.error("Error al obtener cliente:", error);
+        throw error;
+    });
+};
+
+const actualizarCliente = (nombre, correo, id) => {
+    return fetch(`${API_URL}?id=eq.${id}`, {
+        method: 'PATCH',
+        headers: {
+            ...headers,
+            'Prefer': 'return=representation'
+        },
+        body: JSON.stringify({ nombre, correo })
+    })
+    .then(async res => {
+        if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text || 'Error al actualizar cliente');
+        }
+        return res.json();
+    })
+    .catch(error => {
+        console.error("Error al actualizar cliente:", error);
+        throw error;
+    });
+};
+
+export const clientService = {
+    listaclientes,
+    crearCliente,
+    eliminarCliente,
+    obtenerCliente,
     actualizarCliente
 };

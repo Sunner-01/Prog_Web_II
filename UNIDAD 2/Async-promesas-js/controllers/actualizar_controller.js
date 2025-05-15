@@ -75,7 +75,7 @@ const obtenerInfo = async () => {
     const url = new URL(window.location);
     const id = url.searchParams.get("id");
     if (!id) {
-        console.error("ID no proporcionado en la URL");
+        console.error("ID no proporcionado");
         window.location.href = "../screens/error.html";
         return;
     }
@@ -84,14 +84,17 @@ const obtenerInfo = async () => {
     const email = document.querySelector("[data-email]");
 
     try {
-        const perfil = await clientService.clientes(id);
+        const perfilArray = await clientService.obtenerCliente(id);
+        const perfil = perfilArray[0]; 
+
         console.log("Perfil recibido:", perfil);
-        if (!perfil || !perfil.Nombre || !perfil.Correo) {
-            console.error("Perfil no encontrado o datos incompletos:", perfil);
+
+        if (!perfil || !perfil.nombre || !perfil.correo) {
             throw new Error("Perfil no encontrado o datos incompletos");
         }
-        nombre.value = perfil.Nombre;
-        email.value = perfil.Correo;
+
+        nombre.value = perfil.nombre;
+        email.value = perfil.correo;
     } catch (error) {
         console.error("Error al cargar perfil:", error.message);
         window.location.href = "../screens/error.html";
@@ -110,6 +113,7 @@ formulario.addEventListener("submit", (evento) => {
         alert("Por favor, completa todos los campos.");
         return;
     }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(correo)) {
         alert("Por favor, ingresa un correo electrónico válido.");
@@ -119,9 +123,6 @@ formulario.addEventListener("submit", (evento) => {
     clientService.actualizarCliente(nombre, correo, id)
         .then((respuesta) => {
             console.log("Respuesta de actualización:", respuesta);
-            if (respuesta.error) {
-                throw new Error(respuesta.error);
-            }
             window.location.href = "../screens/edicion_concluida.html";
         })
         .catch((error) => {
@@ -129,3 +130,4 @@ formulario.addEventListener("submit", (evento) => {
             window.location.href = "../screens/error.html";
         });
 });
+

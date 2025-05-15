@@ -1,3 +1,5 @@
+/*
+
 const API_BASE_URL = 'http://localhost/Api2/api_productos.php'; // URL de tu API de productos
 
 
@@ -115,4 +117,120 @@ export const productService = {
     producto,
     actualizarProducto
 };
+*/
 
+//////////////////////Conexion Supabase /////////////////////////////////
+
+const SUPABASE_URL = "https://rkkaeohwmcpdaitjoymf.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJra2Flb2h3bWNwZGFpdGpveW1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY4NzY5MDcsImV4cCI6MjA2MjQ1MjkwN30.UkJFdUtOVrfmjATmamThZ0kMs0NF4PpzSv2r0ZBb2DU";
+const TABLE = 'productos';
+const API_URL = `${SUPABASE_URL}/rest/v1/${TABLE}`;
+const headers = {
+    'apikey': SUPABASE_KEY,
+    'Authorization': `Bearer ${SUPABASE_KEY}`,
+    'Content-Type': 'application/json'
+};
+
+const listarProductos = () => {
+    return fetch(`${API_URL}?select=*`, { headers })
+        .then(async res => {
+            if (!res.ok) {
+                const text = await res.text();
+                throw new Error(text || 'Error al listar productos');
+            }
+            return res.json();
+        });
+};
+
+const crearProducto = (nombre, precio, descripcion) => {
+    const producto = {
+        id: uuid.v4(),
+        nombre,
+        precio,
+        descripcion
+    };
+    return fetch(API_URL, {
+        method: 'POST',
+        headers: {
+            ...headers,
+            'Prefer': 'return=representation'
+        },
+        body: JSON.stringify(producto)
+    })
+    .then(async res => {
+        if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text || 'Error al crear producto');
+        }
+        return res.json();
+    })
+    .catch(error => {
+        console.error("Error al crear producto:", error);
+        throw error;
+    });
+};
+
+const eliminarProducto = (id) => {
+    return fetch(`${API_URL}?id=eq.${id}`, {
+        method: 'DELETE',
+        headers
+    })
+    .then(async res => {
+        if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text || 'Error al eliminar producto');
+        }
+        return res.text();
+    })
+    .catch(error => {
+        console.error("Error al eliminar producto:", error);
+        throw error;
+    });
+};
+
+const obtenerProducto = (id) => {
+    return fetch(`${API_URL}?id=eq.${id}`, {
+        headers
+    })
+    .then(async res => {
+        if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text || 'Error al obtener producto');
+        }
+        return res.json();
+    })
+    .catch(error => {
+        console.error("Error al obtener producto:", error);
+        throw error;
+    });
+};
+
+const actualizarProducto = (nombre, precio, descripcion, id) => {
+    return fetch(`${API_URL}?id=eq.${id}`, {
+        method: 'PATCH',
+        headers: {
+            ...headers,
+            'Prefer': 'return=representation'
+        },
+        body: JSON.stringify({ nombre, precio, descripcion })
+    })
+    .then(async res => {
+        if (!res.ok) {
+            const text = await res.text();
+            throw new Error(text || 'Error al actualizar producto');
+        }
+        return res.json();
+    })
+    .catch(error => {
+        console.error("Error al actualizar producto:", error);
+        throw error;
+    });
+};
+
+export const productService = {
+    listarProductos,
+    crearProducto,
+    eliminarProducto,
+    obtenerProducto,
+    actualizarProducto
+};
